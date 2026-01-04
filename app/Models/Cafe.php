@@ -9,16 +9,20 @@ class Cafe extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['mahallah_id', 'cafe_name', 'cafe_num'];
-
-    public function mahallah()
-    {
-        return $this->belongsTo(Mahallah::class);
+    public function mahallah() { 
+        
+        return $this->belongsTo(Mahallah::class, 'mh_id');
+    
     }
 
-    public function menus()
-    {
-        return $this->hasMany(Menu::class);
+    public function menus() { 
+
+        return $this->hasMany(Menu::class); 
+
+    }
+
+    public function orders() { 
+        
+        return $this->hasMany(Order::class); 
     }
 }
-

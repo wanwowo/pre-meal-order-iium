@@ -9,12 +9,9 @@ class Mahallah extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name'];
+    public function cafes(){
 
-    public function cafes()
-    {
-        return $this->hasMany(Cafe::class);
+    return $this->hasMany(Cafe::class, 'mh_id');
+    
     }
 }
-
-
