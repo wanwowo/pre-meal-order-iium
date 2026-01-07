@@ -8,6 +8,7 @@
             @guest
                 <a href="{{ route('login') }}" class="btn btn-outline-light me-2">Login</a>
                 <a href="{{ route('register') }}" class="btn btn-light">Register</a>
+
             @else
                 <span class="text-white me-3">
                     Hi, {{ Auth::user()->name }}
@@ -17,7 +18,12 @@
                     @csrf
                     <button class="btn btn-danger">Logout</button>
                 </form>
+                                 <a href="{{ route('cart.index') }}" class="nav-link">
+    Cart ({{ count(session('cart', [])) }})
+</a>
             @endguest
+           
+
         </div>
     </div>
 </nav>

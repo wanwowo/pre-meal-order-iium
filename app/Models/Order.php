@@ -9,18 +9,20 @@ class Order extends Model
 {
     use HasFactory;
 
-    public function user() { 
-        
-        return $this->belongsTo(User::class); 
-    } 
-    
-    public function cafe() { 
-        
-        return $this->belongsTo(Cafe::class); 
-    } 
-    
-    public function orderDetails() { 
-        
-        return $this->hasMany(OrderDetail::class); 
+    protected $fillable = [
+        'user_id',
+        'total',
+        'payment_status',
+        'order_status',
+    ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function items()
+    {
+        return $this->hasMany(OrderItem::class);
     }
 }

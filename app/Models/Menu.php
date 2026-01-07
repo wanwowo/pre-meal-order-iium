@@ -9,13 +9,15 @@ class Menu extends Model
 {
     use HasFactory;
 
-    public function cafe() { 
-    
-        return $this->belongsTo(Cafe::class); 
-    } 
-    
-    public function orderDetails() {
-        
-        return $this->hasMany(OrderDetail::class, 'item_id'); 
+    protected $fillable = [
+        'cafe_id',
+        'name',
+        'description',
+        'price',
+    ];
+
+    public function cafe()
+    {
+        return $this->belongsTo(Cafe::class);
     }
 }

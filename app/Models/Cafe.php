@@ -11,15 +11,14 @@ class Cafe extends Model
 
     public function mahallah() { 
         
-        return $this->belongsTo(Mahallah::class, 'mh_id');
+        return $this->belongsTo(Mahallah::class, 'mahallah_id');
     
     }
 
-    public function menus() { 
-
-        return $this->hasMany(Menu::class); 
-
-    }
+    public function menus()
+{
+    return $this->hasMany(Menu::class, 'cafe_id');
+}
 
     public function orders() { 
         

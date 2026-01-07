@@ -15,10 +15,10 @@
             @csrf
 
             <div class="mb-3">
-                <label class="form-label">Email</label>
-                <input type="email" name="email" class="form-control" required autofocus>
-                @error('email') <small class="text-danger">{{ $message }}</small> @enderror
-            </div>
+    <label class="form-label">Phone Number</label>
+    <input type="text" name="phone_num" class="form-control" required autofocus>
+    @error('phone_num') <small class="text-danger">{{ $message }}</small> @enderror
+</div>
 
             <div class="mb-3">
                 <label class="form-label">Password</label>

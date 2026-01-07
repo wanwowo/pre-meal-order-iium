@@ -13,14 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-       Schema::create('users', function (Blueprint $table) {
-    $table->id();
-    $table->string('name');
-    $table->string('phone_num')->unique();
-    $table->string('email')->nullable(); // optional
-    $table->string('password');
-    $table->timestamps();
+       Schema::table('users', function (Blueprint $table) {
+    $table->boolean('is_admin')->default(false);
 });
+
     }
 
     /**
@@ -29,7 +25,10 @@ return new class extends Migration
      * @return void
      */
     public function down()
-    {
-        Schema::dropIfExists('users');
-    }
+{
+    Schema::table('users', function (Blueprint $table) {
+        $table->dropColumn('is_admin');
+    });
+}
+
 };

@@ -13,14 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-       Schema::create('users', function (Blueprint $table) {
+       Schema::create('order_items', function (Blueprint $table) {
     $table->id();
-    $table->string('name');
-    $table->string('phone_num')->unique();
-    $table->string('email')->nullable(); // optional
-    $table->string('password');
+    $table->foreignId('order_id')->constrained()->cascadeOnDelete();
+    $table->foreignId('menu_id')->constrained()->cascadeOnDelete();
+    $table->integer('quantity');
+    $table->decimal('price', 8, 2);
     $table->timestamps();
 });
+
     }
 
     /**
@@ -30,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('order_items');
     }
 };
